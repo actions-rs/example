@@ -17,3 +17,16 @@ pub fn pid() -> Pid {
         example_sys::windows::GetCurrentProcessId()
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use std::process;
+
+    use super::pid;
+
+    #[test]
+    fn test_pid_is_working() {
+        assert_eq!(pid() as u32, process::id());
+    }
+
+}
