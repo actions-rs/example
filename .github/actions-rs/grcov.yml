@@ -1,4 +1,2 @@
-branch: true
-ignore-not-existing: false
 llvm: true
 output-type: lcov
