@@ -32,7 +32,7 @@ jobs:
 
       - name: Gather coverage data
         id: coverage
-        uses: actions-rs/grcov@v0.1
+        uses: actions-rs/grcov@dev
         with:
           coveralls-token: ${{ secrets.COVERALLS_TOKEN }}
 
