@@ -21,6 +21,16 @@ pub fn pid() -> Pid {
     }
 }
 
+// Specifically dumb function, just to trigger clippy
+pub fn pid_is_valid(pid: Pid) -> bool {
+    let pid = pid as u32;
+    if pid < 0 {
+        return false;
+    } else {
+        return true;
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use std::process;
