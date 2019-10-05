@@ -14,6 +14,7 @@ jobs:
         target:
           - armv7-unknown-linux-gnueabihf
           - powerpc64-unknown-linux-gnu
+          -
     steps:
       - uses: actions/checkout@v1
       - uses: actions-rs/toolchain@v1
@@ -26,3 +27,26 @@ jobs:
           use-cross: true
           command: build
           args: --release --target=${{ matrix.target }}
+
+  cross-ios-build:
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        rust_target:
+          - aarch64-apple-ios
+          - armv7-apple-ios
+          - armv7s-apple-ios
+          - i386-apple-ios
+          - x86_64-apple-ios
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install Rust ${{ matrix.rust_toolchain }}
+        uses: actions-rs/toolchain@toolchain-add
+        with:
+            toolchain: ${{ matrix.rust_toolchain }}
+            target: ${{ matrix.rust_target }}
+            default: true
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --target=${{ matrix.rust_target }}
