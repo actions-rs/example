@@ -20,8 +20,8 @@ jobs:
       - name: Install nightly toolchain with clippy available
         uses: actions-rs/toolchain@v1
         with:
-            toolchain: ${{ steps.component.outputs.toolchain }}
-            override: true
+          toolchain: ${{ steps.component.outputs.toolchain }}
+          override: true
             
       - name: Install clippy
         run: rustup component add clippy
