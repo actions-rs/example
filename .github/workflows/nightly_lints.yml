@@ -51,8 +51,8 @@ jobs:
       - name: Install nightly toolchain with rustfmt available
         uses: actions-rs/toolchain@v1
         with:
-            toolchain: ${{ steps.component.outputs.toolchain }}
-            override: true
+          toolchain: ${{ steps.component.outputs.toolchain }}
+          override: true
 
       - name: Install rustfmt
         run: rustup component add rustfmt
