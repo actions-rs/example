@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install Rust ${{ matrix.rust_toolchain }}
-        uses: actions-rs/toolchain@toolchain-add
+        uses: actions-rs/toolchain@master
         with:
             toolchain: stable
             target: ${{ matrix.rust_target }}
