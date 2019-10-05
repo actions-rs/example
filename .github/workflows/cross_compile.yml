@@ -43,7 +43,7 @@ jobs:
       - name: Install Rust ${{ matrix.rust_toolchain }}
         uses: actions-rs/toolchain@toolchain-add
         with:
-            toolchain: ${{ matrix.rust_toolchain }}
+            toolchain: stable
             target: ${{ matrix.rust_target }}
             default: true
       - uses: actions-rs/cargo@v1
