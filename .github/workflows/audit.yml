@@ -1,10 +1,10 @@
 name: Security audit
 
 on:
-  - push
-  - pull_request
-  - schedule:
-      - cron: '*/30 * * * *'
+  push
+  pull_request
+  schedule:
+    - cron: '*/30 * * * *'
 
 jobs:
   main:
