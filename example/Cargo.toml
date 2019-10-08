@@ -9,4 +9,6 @@ publish = false
 
 [dependencies]
 example-sys = { path = "../example-sys" }
-once_cell = "=1.0.0-pre.2"
+
+# Used to trigger the `audit-check` Action
+once_cell = "1.0.0-pre.2"
