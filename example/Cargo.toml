@@ -10,5 +10,5 @@ publish = false
 [dependencies]
 example-sys = { path = "../example-sys" }
 
-# Used to trigger the `audit-check` Action
+# Used to trigger the `audit-check` Action (non-informational advisory)
 once_cell = "1.0.0-pre.2"
