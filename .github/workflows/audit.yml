@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '0 0 * * *'
   push:
+    paths: 
+      - '**/Cargo.toml'
+      - '**/Cargo.lock'
   pull_request:
 
 jobs:
