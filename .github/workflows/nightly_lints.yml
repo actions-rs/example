@@ -36,7 +36,7 @@ jobs:
         uses: actions-rs/toolchain@profiles
         with:
           profile: minimal
-          toolchain: ${{ steps.component.outputs.toolchain }}
+          toolchain: nightly
           override: true
           components: rustfmt
 
