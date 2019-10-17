@@ -48,7 +48,7 @@ jobs:
           args: --all -- --check
 
   combo:
-    name: McClippy with format-fry
+    name: Clippy + rustfmt
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
