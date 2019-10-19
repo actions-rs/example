@@ -19,6 +19,7 @@ jobs:
       - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
         with:
+          profile: minimal
           toolchain: stable
           override: true
 
@@ -38,6 +39,7 @@ jobs:
       - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
         with:
+          profile: minimal
           toolchain: stable
           override: true
 
@@ -47,8 +49,8 @@ jobs:
         with:
           command: test
 
-  fmt:
-    name: Rustfmt
+  lints:
+    name: Lints
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -57,11 +59,10 @@ jobs:
       - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
         with:
+          profile: minimal
           toolchain: stable
           override: true
-
-      - name: Install rustfmt
-        run: rustup component add rustfmt
+          components: rustfmt, clippy
 
       - name: Run cargo fmt
         uses: actions-rs/cargo@v1
@@ -69,22 +70,6 @@ jobs:
         with:
           command: fmt
           args: --all -- --check
-
-  clippy:
-    name: Clippy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@v1
-
-      - name: Install stable toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-
-      - name: Install clippy
-        run: rustup component add clippy
 
       - name: Run cargo clippy
         uses: actions-rs/cargo@v1

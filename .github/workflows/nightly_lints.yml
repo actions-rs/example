@@ -10,21 +10,13 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v1
 
-      - id: component
-        name: Search for latest nightly clippy
-        uses: actions-rs/components-nightly@v1
-        with:
-          target: x86_64-unknown-linux-gnu
-          component: clippy
-
       - name: Install nightly toolchain with clippy available
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: ${{ steps.component.outputs.toolchain }}
+          profile: minimal
+          toolchain: nightly
           override: true
-            
-      - name: Install clippy
-        run: rustup component add clippy
+          components: clippy
 
       - name: Run cargo clippy
         uses: actions-rs/cargo@v1
@@ -40,22 +32,13 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v1
 
-      - id: component
-        name: Search for latest nightly rustfmt
-        uses: actions-rs/components-nightly@v1
-        with:
-          target: x86_64-unknown-linux-gnu
-          component: rustfmt
-
-
       - name: Install nightly toolchain with rustfmt available
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: ${{ steps.component.outputs.toolchain }}
+          profile: minimal
+          toolchain: nightly
           override: true
-
-      - name: Install rustfmt
-        run: rustup component add rustfmt
+          components: rustfmt
 
       - name: Run cargo fmt
         uses: actions-rs/cargo@v1
@@ -63,3 +46,33 @@ jobs:
         with:
           command: fmt
           args: --all -- --check
+
+  combo:
+    name: Clippy + rustfmt
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v1
+
+      - name: Install nightly toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: nightly
+          override: true
+          components: rustfmt, clippy
+
+      - name: Run cargo fmt
+        uses: actions-rs/cargo@v1
+        continue-on-error: true  # WARNING: only for this example, remove it!
+        with:
+          command: fmt
+          args: --all -- --check
+
+      - name: Run cargo clippy
+        uses: actions-rs/cargo@v1
+        continue-on-error: true  # WARNING: only for this example, remove it!
+        with:
+          command: clippy
+          args: -- -D warnings
+
