@@ -6,6 +6,9 @@ pub type Pid = example_sys::windows::DWORD;
 
 #[cfg(unix)]
 pub fn pid() -> Pid {
+    let a: u64 = 0;
+    assert!(a < 0);
+    
     unsafe {
         example_sys::unix::getpid()
     }
@@ -38,4 +41,5 @@ mod tests {
     fn test_pid_is_working() {
         assert_eq!(pid() as u32, process::id());
     }
+
 }

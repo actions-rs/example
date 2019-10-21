@@ -14,6 +14,6 @@ jobs:
             toolchain: ${{ steps.component.outputs.toolchain }}
             override: true
       - run: rustup component add clippy
-      - uses: actions-rs/clippy-check@v1
+      - uses: actions-rs/clippy-check@permissions-fallback
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
