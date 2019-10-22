@@ -21,7 +21,7 @@ jobs:
           toolchain: stable
           target: ${{ matrix.target }}
           override: true
-      - uses: actions-rs/cargo@v1
+      - uses: actions-rs/cargo@rustfmt-problem-matcher
         with:
           use-cross: true
           command: build

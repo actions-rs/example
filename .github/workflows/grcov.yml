@@ -22,7 +22,7 @@ jobs:
           override: true
 
       - name: Execute tests
-        uses: actions-rs/cargo@v1
+        uses: actions-rs/cargo@rustfmt-problem-matcher
         with:
           command: test
           args: --all
