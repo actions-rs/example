@@ -11,7 +11,7 @@ pub fn pid() -> Pid {
 
 #[cfg(target_os = "windows")]
 pub fn pid() -> Pid {
-    unsafe { example_sys::windows::GetCurrentProcessId() }
+      unsafe { example_sys::windows::GetCurrentProcessId() }
 }
 
 // Specifically dumb function, just to trigger clippy
