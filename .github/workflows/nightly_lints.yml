@@ -19,7 +19,7 @@ jobs:
           components: clippy
 
       - name: Run cargo clippy
-        uses: actions-rs/cargo@rustfmt-problem-matcher
+        uses: actions-rs/cargo@problem-matchers-fix
         continue-on-error: true  # WARNING: only for this example, remove it!
         with:
           command: clippy
@@ -41,7 +41,7 @@ jobs:
           components: rustfmt
 
       - name: Run cargo fmt
-        uses: actions-rs/cargo@rustfmt-problem-matcher
+        uses: actions-rs/cargo@problem-matchers-fix
         continue-on-error: true  # WARNING: only for this example, remove it!
         with:
           command: fmt
@@ -63,14 +63,14 @@ jobs:
           components: rustfmt, clippy
 
       - name: Run cargo fmt
-        uses: actions-rs/cargo@rustfmt-problem-matcher
+        uses: actions-rs/cargo@problem-matchers-fix
         continue-on-error: true  # WARNING: only for this example, remove it!
         with:
           command: fmt
           args: --all -- --check
 
       - name: Run cargo clippy
-        uses: actions-rs/cargo@rustfmt-problem-matcher
+        uses: actions-rs/cargo@problem-matchers-fix
         continue-on-error: true  # WARNING: only for this example, remove it!
         with:
           command: clippy

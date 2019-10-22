@@ -24,7 +24,7 @@ jobs:
           override: true
 
       - name: Run cargo check
-        uses: actions-rs/cargo@rustfmt-problem-matcher
+        uses: actions-rs/cargo@problem-matchers-fix
         continue-on-error: true  # WARNING: only for this example, remove it!
         with:
           command: check
@@ -48,7 +48,7 @@ jobs:
           override: true
 
       - name: Run cargo test
-        uses: actions-rs/cargo@rustfmt-problem-matcher
+        uses: actions-rs/cargo@problem-matchers-fix
         continue-on-error: true  # WARNING: only for this example, remove it!
         with:
           command: test
@@ -75,7 +75,7 @@ jobs:
         run: rustup component add rustfmt
 
       - name: Run cargo fmt
-        uses: actions-rs/cargo@rustfmt-problem-matcher
+        uses: actions-rs/cargo@problem-matchers-fix
         continue-on-error: true  # WARNING: only for this example, remove it!
         with:
           command: fmt
@@ -103,7 +103,7 @@ jobs:
         run: rustup component add clippy
 
       - name: Run cargo clippy
-        uses: actions-rs/cargo@rustfmt-problem-matcher
+        uses: actions-rs/cargo@problem-matchers-fix
         continue-on-error: true  # WARNING: only for this example, remove it!
         with:
           command: clippy
