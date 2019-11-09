@@ -14,4 +14,4 @@ jobs:
             toolchain: ${{ steps.component.outputs.toolchain }}
             override: true
       - run: rustup component add clippy
-      - uses: actions-rs/clippy-check@annotations
+      - uses: actions-rs/clippy-check@annotations-fallback
