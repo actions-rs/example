@@ -20,7 +20,7 @@ jobs:
         uses: thomaseizinger/toolchain@rust-toolchain-support
         with:
           profile: minimal
-          toolchain: stable
+#          toolchain: stable
           override: true
 
       - name: Run cargo check
