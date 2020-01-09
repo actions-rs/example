@@ -16,10 +16,11 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v1
 
-      - name: Install toolchain from rust-toolchain file
+      - name: Install toolchain not from input
         uses: thomaseizinger/toolchain@rust-toolchain-support
         with:
           profile: minimal
+          toolchain: stable
           override: true
 
       - name: Run cargo check
