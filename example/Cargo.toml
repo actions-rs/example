@@ -14,5 +14,3 @@ example-sys = { path = "../example-sys" }
 rustsec-example-crate = "=0.0.1"
 spin = "*"  # Unmaintained
 http = "=0.1.19"  # Unsound
-log = "=0.4.10"  # Yanked
-
