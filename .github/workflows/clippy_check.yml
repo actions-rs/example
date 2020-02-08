@@ -3,13 +3,12 @@ name: Clippy check
 jobs:
   clippy_check:
     runs-on: ubuntu-latest
+    env:
+      TAURI_DIST_DIR: tauri/test/fixture/dist
+      TAURI_DIR: ../test/fixture/src-tauri
     steps:
       - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-            toolchain: nightly
-            components: clippy
-            override: true
+      - run: rustup component add clippy
       - uses: actions-rs/clippy-check@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
