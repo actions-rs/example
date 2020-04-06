@@ -33,9 +33,11 @@ jobs:
 
       # Note that `actions-rs/grcov` Action can install `grcov` too,
       # but can't use faster installation methods yet.
-      # As a temporary experiment `actions-rs/install` Action plugged in here.
+      # As a temporary experiment, `actions-rs/install` Action plugged in here.
       # Consider **NOT** to copy that into your workflow,
-      # but use `actions-rs/grcov` only
+      # but use only `actions-rs/grcov` instead,
+      # as `actions-rs/install` Action is not stable yet,
+      # and it might be embedded into `actions-rs/grcov` later.
       - name: Pre-installing grcov
         uses: actions-rs/install@external-cert
         with:
