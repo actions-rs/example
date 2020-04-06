@@ -37,7 +37,7 @@ jobs:
       # Consider **NOT** to copy that into your workflow,
       # but use `actions-rs/grcov` only
       - name: Pre-installing grcov
-        uses: actions-rs/install@v0.1
+        uses: actions-rs/install@external-cert
         with:
           crate: grcov
           use-tool-cache: true
