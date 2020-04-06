@@ -20,6 +20,7 @@ jobs:
         with:
           toolchain: nightly
           override: true
+          profile: minimal
 
       - name: Execute tests
         uses: actions-rs/cargo@v1
@@ -29,6 +30,17 @@ jobs:
         env:
           CARGO_INCREMENTAL: 0
           RUSTFLAGS: "-Zprofile -Ccodegen-units=1 -Cinline-threshold=0 -Clink-dead-code -Coverflow-checks=off -Zno-landing-pads"
+
+      # Note that `actions-rs/grcov` Action can install `grcov` too,
+      # but can't use faster installation methods yet.
+      # As a temporary experiment `actions-rs/install` Action plugged in here.
+      # Consider **NOT** to copy that into your workflow,
+      # but use `actions-rs/grcov` only
+      - name: Pre-installing grcov
+        uses: actions-rs/install@v0.1
+        with:
+          crate: grcov
+          use-tool-cache: true
 
       - name: Gather coverage data
         id: coverage
