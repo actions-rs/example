@@ -38,6 +38,7 @@ jobs:
       # but use only `actions-rs/grcov` instead,
       # as `actions-rs/install` Action is not stable yet,
       # and it might be embedded into `actions-rs/grcov` later.
+      # Triggering build once again.
       - name: Pre-installing grcov
         uses: actions-rs/install@external-cert
         with:

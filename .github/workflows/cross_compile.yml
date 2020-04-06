@@ -1,4 +1,4 @@
-# We could use `@actions-rs/cargo` Action ability to automatically install `cross` tool
+# We can also use `@actions-rs/cargo` Action ability to automatically install `cross` tool
 # in order to compile our application for some unusual targets.
 
 on: [push, pull_request]
