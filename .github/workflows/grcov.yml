@@ -48,6 +48,7 @@ jobs:
         with:
           args: >
             --token ${{ secrets.COVERALLS_TOKEN }}
+            ./target
 
       - name: Coveralls upload
         uses: coverallsapp/github-action@master
