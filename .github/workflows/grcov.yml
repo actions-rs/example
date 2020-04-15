@@ -44,9 +44,10 @@ jobs:
 
       - name: Gather coverage data
         id: coverage
-        uses: actions-rs/grcov@v0.1
+        uses: actions-rs/grcov@0.2-proto
         with:
-          coveralls-token: ${{ secrets.COVERALLS_TOKEN }}
+          args: >
+            --token ${{ secrets.COVERALLS_TOKEN }}
 
       - name: Coveralls upload
         uses: coverallsapp/github-action@master
