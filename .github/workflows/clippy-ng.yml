@@ -1,7 +1,7 @@
 on: [push, pull_request]
 name: Clippy (new version test, don't use it!)
 jobs:
-  clippy_check:
+  clippy_check_ng:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
