@@ -1,5 +1,5 @@
 on: [push, pull_request]
-name: Clippy (new version test)
+name: Clippy (new version test, don't use it!)
 jobs:
   clippy_check:
     runs-on: ubuntu-latest
