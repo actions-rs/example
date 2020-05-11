@@ -1,5 +1,5 @@
 on: [push, pull_request]
-name: Clippy check
+name: Clippy (new version test, don't use it!)
 jobs:
   clippy_check:
     runs-on: ubuntu-latest
@@ -10,6 +10,4 @@ jobs:
             toolchain: nightly
             components: clippy
             override: true
-      - uses: actions-rs/clippy-check@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions-rs/clippy@master
