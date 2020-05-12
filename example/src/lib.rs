@@ -18,9 +18,10 @@ pub fn pid() -> Pid {
     }
 }
 
-// Specifically dumb function, just to trigger clippy
+// Extremely dumb function, just to trigger clippy as much as possible
 pub fn pid_is_valid(pid: Pid) -> bool {
     let pid = pid as u32;
+    println!("{}", pid < 0);
     if pid < 0 {
         return false;
     } else {
